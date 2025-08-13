@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/ModeToggle";
 import Head from "next/head";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       <>
         <div>
+          <ModeToggle />
           <h1 className=" font-bold text-2xl  underline">jhgdhjgh</h1>
         </div>
       </>
