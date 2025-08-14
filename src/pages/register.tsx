@@ -30,7 +30,6 @@ const Register = () => {
       return;
     }
     users.push(form);
-    users.push({ ...form, role: "user" });
     localStorage.setItem("users", JSON.stringify(users));
     setSuccess("Registration successful! Redirecting to login...");
     setTimeout(() => router.push("/login"), 1500);
