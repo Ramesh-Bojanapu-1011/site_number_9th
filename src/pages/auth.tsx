@@ -42,7 +42,7 @@ const AuthPage = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const user = users.find(
       (u: any) =>
-        u.email === loginForm.email && u.password === loginForm.password
+        u.email === loginForm.email && u.password === loginForm.password,
     );
     if (!user) {
       setLoginError("Invalid email or password.");
@@ -84,13 +84,14 @@ const AuthPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
       <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-md animate-fade-in-up">
-        
         {mode === "login" ? (
           <form onSubmit={handleLoginSubmit}>
             <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
               Login
             </h2>
-            {loginError && <div className="mb-4 text-red-500">{loginError}</div>}
+            {loginError && (
+              <div className="mb-4 text-red-500">{loginError}</div>
+            )}
             <div className="mb-4">
               <input
                 name="email"
@@ -131,8 +132,12 @@ const AuthPage = () => {
             <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
               Register
             </h2>
-            {registerError && <div className="mb-4 text-red-500">{registerError}</div>}
-            {registerSuccess && <div className="mb-4 text-green-500">{registerSuccess}</div>}
+            {registerError && (
+              <div className="mb-4 text-red-500">{registerError}</div>
+            )}
+            {registerSuccess && (
+              <div className="mb-4 text-green-500">{registerSuccess}</div>
+            )}
             <div className="mb-4">
               <input
                 name="firstName"
@@ -186,28 +191,49 @@ const AuthPage = () => {
         <div className="mt-6 text-center">
           {mode === "login" ? (
             <span className="text-gray-600 dark:text-gray-300">
-              Don't have an account?{' '}
-              <button className="text-blue-600 dark:text-yellow-200 hover:underline" onClick={() => setMode('register')}>Register</button>
+              Don't have an account?{" "}
+              <button
+                className="text-blue-600 dark:text-yellow-200 hover:underline"
+                onClick={() => setMode("register")}
+              >
+                Register
+              </button>
             </span>
           ) : (
             <span className="text-gray-600 dark:text-gray-300">
-              Already have an account?{' '}
-              <button className="text-blue-600 dark:text-yellow-200 hover:underline" onClick={() => setMode('login')}>Login</button>
+              Already have an account?{" "}
+              <button
+                className="text-blue-600 dark:text-yellow-200 hover:underline"
+                onClick={() => setMode("login")}
+              >
+                Login
+              </button>
             </span>
           )}
         </div>
       </div>
       <style jsx global>{`
         @keyframes fade-in-up {
-          0% { opacity: 0; transform: translateY(40px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-fade-in-up {
-          animation: fade-in-up 0.8s cubic-bezier(0.4,0,0.2,1) both;
+          animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         @keyframes gradient-x {
-          0%,100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+          0%,
+          100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
         }
         .animate-gradient-x {
           background-size: 200% 200%;
