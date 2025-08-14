@@ -24,7 +24,7 @@ export default function Home() {
                 Ready to shop? Please login to continue.
               </p>
               <button
-                onClick={() => router.push("/login")}
+                onClick={() => router.push("/auth")}
                 className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-bold text-lg shadow-lg hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300 animate-bounce"
               >
                 Go to Login
