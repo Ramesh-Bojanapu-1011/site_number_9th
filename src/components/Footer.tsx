@@ -1,16 +1,20 @@
 import React from "react";
+import Image from "next/image";
 
 type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg px-4 py-10 mt-8">
+    <footer className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg px-4 py-10 caret-transparent  ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
         {/* Logo/Brand */}
         <div className="flex flex-col items-start">
-          <span className="text-2xl font-extrabold drop-shadow-lg tracking-wide mb-2">
-            MyShop
-          </span>
+          <Image
+            src={"/logo.png"}
+            alt="E-commerce Hero"
+            width={150}
+            height={150}
+          />
           <span className="text-sm opacity-80 mb-4">
             Your one-stop shop for everything!
           </span>

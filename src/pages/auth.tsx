@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import { Eye, EyeOff, WifiZero } from "lucide-react";
 
 const AuthPage = () => {
   const router = useRouter();
@@ -31,7 +32,7 @@ const AuthPage = () => {
     ) {
       const adminUser = {
         email: loginForm.email,
-        role: "admin",
+        password: loginForm.password,
         firstName: "Admin",
         lastName: "User",
       };
@@ -42,7 +43,7 @@ const AuthPage = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const user = users.find(
       (u: any) =>
-        u.email === loginForm.email && u.password === loginForm.password,
+        u.email === loginForm.email && u.password === loginForm.password
     );
     if (!user) {
       setLoginError("Invalid email or password.");
@@ -72,7 +73,7 @@ const AuthPage = () => {
       setRegisterError("Email already registered.");
       return;
     }
-    users.push({ ...registerForm, role: "user" });
+    users.push({ ...registerForm });
     localStorage.setItem("users", JSON.stringify(users));
     setRegisterSuccess("Registration successful! Redirecting to login...");
     setTimeout(() => {
@@ -83,7 +84,7 @@ const AuthPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
-      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-md animate-fade-in-up">
+      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-md ">
         {mode === "login" ? (
           <form onSubmit={handleLoginSubmit}>
             <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
@@ -116,8 +117,9 @@ const AuthPage = () => {
                   tabIndex={-1}
                   onClick={() => setLoginShowPassword((v) => !v)}
                 >
-                  {loginShowPassword ? "Hide" : "Show"}
+                  {loginShowPassword ? <EyeOff size={19} /> : <Eye size={19} />}
                 </button>
+                
               </div>
             </div>
             <button
@@ -126,6 +128,7 @@ const AuthPage = () => {
             >
               Login
             </button>
+            <WifiZero size={19} />
           </form>
         ) : (
           <form onSubmit={handleRegisterSubmit}>
@@ -176,7 +179,11 @@ const AuthPage = () => {
                   tabIndex={-1}
                   onClick={() => setRegisterShowPassword((v) => !v)}
                 >
-                  {registerShowPassword ? "Hide" : "Show"}
+                  {registerShowPassword ? (
+                    <EyeOff size={19} />
+                  ) : (
+                    <Eye size={19} />
+                  )}
                 </button>
               </div>
             </div>
@@ -223,7 +230,7 @@ const AuthPage = () => {
             transform: translateY(0);
           }
         }
-        .animate-fade-in-up {
+        . {
           animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         @keyframes gradient-x {
