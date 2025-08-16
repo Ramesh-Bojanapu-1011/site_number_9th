@@ -167,15 +167,16 @@ const ContactUsPage = (props: Props) => {
               Subscribe to our newsletter for the latest updates, offers, and
               news from MyShop!
             </p>
-            <form className="flex w-full justify-center items-center  max-w-md">
+            <form className="flex w-full justify-center gap-2 items-center  max-w-md">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 pl-2 py-2 rounded-l bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none"
+                className="flex-1 px-4 py-3 rounded-full border outline-none text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 dark:focus:ring-pink-500 transition"
+                required
               />
               <button
                 type="submit"
-                className="px-6 py-2 rounded-r bg-blue-500 text-white dark:bg-pink-500 dark:text-white font-bold hover:bg-blue-600 dark:hover:bg-pink-600 transition"
+                className="px-8 py-3 rounded-full bg-white text-blue-700 font-bold text-lg shadow-lg hover:scale-105 hover:bg-blue-100 transition-all duration-300 dark:bg-gray-900 dark:text-yellow-200 dark:hover:bg-gray-800"
               >
                 Subscribe
               </button>
