@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -29,36 +30,52 @@ const Footer = (props: Props) => {
           </h3>
           <ul className="space-y-2">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/home1"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Home
-              </a>
+                Home1
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/home2"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                About
-              </a>
+                Home2
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/about-us"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Contact
-              </a>
+                About Us
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/products"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Privacy Policy
-              </a>
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog"
+                className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact-us"
+                className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
+              >
+                Contact Us
+              </Link>
             </li>
           </ul>
         </div>
@@ -67,36 +84,52 @@ const Footer = (props: Props) => {
           <h3 className="font-bold text-lg mb-3 text-yellow-200">Products</h3>
           <ul className="space-y-2">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/iphone-13"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Shop1
-              </a>
+                iPhone 13
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/led-tv"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Shop2
-              </a>
+                LED TV
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/blender-pro"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Shop3
-              </a>
+                Blender Pro
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/vacum-cleaner"
                 className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
               >
-                Shop4
-              </a>
+                Vacum Cleaner
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/wireless-earbuds"
+                className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
+              >
+                Wireless Earbuds
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/coffee-maker"
+                className="hover:text-yellow-300 dark:hover:text-pink-400 transition"
+              >
+                Coffee Maker
+              </Link>
             </li>
           </ul>
         </div>

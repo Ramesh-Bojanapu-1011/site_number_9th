@@ -12,10 +12,10 @@ const VacumCleaner = () => {
         <section className="flex flex-col md:flex-row items-center justify-between mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[60vh] w-full px-6 py-16">
           <div className="flex-1 mb-8 md:mb-0" data-aos="fade-right">
             <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
-              Vacuum Cleaner
+              Vacum Cleaner
             </h1>
             <p className="text-xl max-w-lg opacity-90 mb-6">
-              Effortless cleaning with our powerful Vacuum Cleaner. Designed for
+              Effortless cleaning with our powerful Vacum Cleaner. Designed for
               deep cleaning, low noise, and easy handling—perfect for every
               home.
             </p>
@@ -28,7 +28,7 @@ const VacumCleaner = () => {
           </div>
           <img
             src="/vacuum-main.png"
-            alt="Vacuum Cleaner"
+            alt="Vacum Cleaner"
             className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
             data-aos="fade-left"
           />
@@ -39,16 +39,16 @@ const VacumCleaner = () => {
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
             <img
               src="/vacuum-side.png"
-              alt="Vacuum Cleaner Side"
+              alt="Vacum Cleaner Side"
               className="w-40 h-40 md:w-56 md:h-56 object-contain mb-6 md:mb-0"
               data-aos="fade-right"
             />
             <div className="flex-1" data-aos="fade-left">
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
-                About Vacuum Cleaner
+                About Vacum Cleaner
               </h2>
               <p className="mb-4 text-lg text-gray-700 dark:text-gray-200 text-justify">
-                Our Vacuum Cleaner is engineered for maximum suction and
+                Our Vacum Cleaner is engineered for maximum suction and
                 efficiency, making it easy to clean carpets, hard floors, and
                 even pet hair. Its lightweight design and ergonomic handle
                 ensure comfort during use.
@@ -77,7 +77,7 @@ const VacumCleaner = () => {
                 <img
                   key={idx}
                   src={img}
-                  alt={`Vacuum Cleaner view ${idx + 1}`}
+                  alt={`Vacum Cleaner view ${idx + 1}`}
                   className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
                 />
               ))}
@@ -171,14 +171,13 @@ const VacumCleaner = () => {
               Ready for Effortless Cleaning?
             </h2>
             <p className="mb-8 text-lg text-white/90">
-              Upgrade your home with our Vacuum Cleaner. Limited stock
-              available!
+              Upgrade your home with our Vacum Cleaner. Limited stock available!
             </p>
             <Link
               href="/contact-us"
               className="inline-block px-10 py-4 rounded-full bg-white text-blue-700 font-bold text-xl shadow-lg hover:scale-105 hover:bg-blue-100 transition-all duration-300 dark:bg-gray-900 dark:text-yellow-200 dark:hover:bg-gray-800"
             >
-              Buy Vacuum Cleaner
+              Buy Vacum Cleaner
             </Link>
           </div>
         </section>

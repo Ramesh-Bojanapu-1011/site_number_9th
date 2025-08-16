@@ -455,8 +455,12 @@ const Headder = (props: Props) => {
                     const currentUserStr = localStorage.getItem("currentUser");
                     if (currentUserStr) {
                       const currentUser = JSON.parse(currentUserStr);
-                      const users = JSON.parse(localStorage.getItem("users") || "[]");
-                      const idx = users.findIndex((u: any) => u.email === currentUser.email);
+                      const users = JSON.parse(
+                        localStorage.getItem("users") || "[]",
+                      );
+                      const idx = users.findIndex(
+                        (u: any) => u.email === currentUser.email,
+                      );
                       if (idx !== -1) {
                         users[idx].lastLogoutAt = new Date().toISOString();
                         localStorage.setItem("users", JSON.stringify(users));
@@ -495,8 +499,12 @@ const Headder = (props: Props) => {
                   const currentUserStr = localStorage.getItem("currentUser");
                   if (currentUserStr) {
                     const currentUser = JSON.parse(currentUserStr);
-                    const users = JSON.parse(localStorage.getItem("users") || "[]");
-                    const idx = users.findIndex((u: any) => u.email === currentUser.email);
+                    const users = JSON.parse(
+                      localStorage.getItem("users") || "[]",
+                    );
+                    const idx = users.findIndex(
+                      (u: any) => u.email === currentUser.email,
+                    );
                     if (idx !== -1) {
                       users[idx].lastLogoutAt = new Date().toISOString();
                       localStorage.setItem("users", JSON.stringify(users));
