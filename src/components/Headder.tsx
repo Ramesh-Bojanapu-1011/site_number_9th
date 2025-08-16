@@ -3,10 +3,12 @@ import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
 import Image from "next/image";
 import { Avatar, AvatarFallback } from "./ui/avatar";
+import { useRouter } from "next/navigation"; // or "next/router" if using pages directory
 
 type Props = {};
 
 const Headder = (props: Props) => {
+  const router = useRouter();
   const [userInitials, setUserInitials] = React.useState(""); // Default initials
   React.useEffect(() => {
     // Runs only in the browser
@@ -62,6 +64,12 @@ const Headder = (props: Props) => {
   const mobileShopRef = React.useRef<HTMLDivElement>(null);
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
   const mobileMenuBtnRef = React.useRef<HTMLButtonElement>(null);
+  const [desktopProfileDropdownOpen, setDesktopProfileDropdownOpen] =
+    React.useState(false);
+  const [mobileProfileDropdownOpen, setMobileProfileDropdownOpen] =
+    React.useState(false);
+  const desktopProfileDropdownRef = React.useRef<HTMLDivElement>(null);
+  const mobileProfileDropdownRef = React.useRef<HTMLDivElement>(null);
 
   // Click outside to close for mobile menu and dropdowns
   React.useEffect(() => {
@@ -94,14 +102,41 @@ const Headder = (props: Props) => {
         if (menu && !menu.classList.contains("hidden"))
           menu.classList.add("hidden");
       }
+      // Profile dropdowns
+      if (
+        mobileProfileDropdownOpen &&
+        mobileProfileDropdownRef.current &&
+        !mobileProfileDropdownRef.current.contains(event.target as Node)
+      ) {
+        setMobileProfileDropdownOpen(false);
+      }
+      if (
+        desktopProfileDropdownOpen &&
+        desktopProfileDropdownRef.current &&
+        !desktopProfileDropdownRef.current.contains(event.target as Node)
+      ) {
+        setDesktopProfileDropdownOpen(false);
+      }
     }
-    if (mobileHomeOpen || mobileShopOpen || mobileMenuOpen) {
+    if (
+      mobileHomeOpen ||
+      mobileShopOpen ||
+      mobileMenuOpen ||
+      mobileProfileDropdownOpen ||
+      desktopProfileDropdownOpen
+    ) {
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [mobileHomeOpen, mobileShopOpen, mobileMenuOpen]);
+  }, [
+    mobileHomeOpen,
+    mobileShopOpen,
+    mobileMenuOpen,
+    mobileProfileDropdownOpen,
+    desktopProfileDropdownOpen,
+  ]);
   return (
     <header className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg px-4 py-3 flex items-center justify-between sticky caret-transparent top-0 z-50">
       <div className="flex items-center gap-2">
@@ -140,13 +175,13 @@ const Headder = (props: Props) => {
           {desktopHomeOpen && (
             <div className="absolute left-0 mt-2 w-32 bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
               <Link
-                href="home1"
+                href="/home1"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
                 Home1
               </Link>
               <Link
-                href="home2"
+                href="/home2"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
                 Home2
@@ -278,13 +313,13 @@ const Headder = (props: Props) => {
           {mobileHomeOpen && (
             <div className="ml-4 mt-1 flex flex-col bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl border border-blue-200 dark:border-pink-900">
               <Link
-                href="#"
+                href="/home1"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
                 Home1
               </Link>
               <Link
-                href="#"
+                href="/home2"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
                 Home2
@@ -356,18 +391,62 @@ const Headder = (props: Props) => {
         >
           Contact Us
         </Link>
-        <div className="flex gap-2.5 items-center mt-4 border-t pt-4">
+        <div className="flex gap-2.5 items-center mt-4 border-t pt-4 relative">
           <ModeToggle />
-          <Avatar className="w-10 h-10">
-            <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
-          </Avatar>
+          <div ref={mobileProfileDropdownRef} className="relative">
+            <button
+              className="focus:outline-none"
+              onClick={() => setMobileProfileDropdownOpen((open) => !open)}
+              aria-haspopup="true"
+              aria-expanded={mobileProfileDropdownOpen}
+            >
+              <Avatar className="w-10 h-10">
+                <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
+              </Avatar>
+            </button>
+            {mobileProfileDropdownOpen && (
+              <div className="absolute left-0 mt-2 w-32 bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
+                <button
+                  className="block w-full text-left px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+                  onClick={() => {
+                    localStorage.removeItem("currentUser");
+                    router.push("/auth");
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-      <div className="md:flex hidden gap-2.5 items-center">
+      <div className="md:flex hidden gap-2.5 items-center relative">
         <ModeToggle />
-        <Avatar className="w-10 h-10">
-          <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
-        </Avatar>
+        <div ref={desktopProfileDropdownRef} className="relative">
+          <button
+            className="focus:outline-none"
+            onClick={() => setDesktopProfileDropdownOpen((open) => !open)}
+            aria-haspopup="true"
+            aria-expanded={desktopProfileDropdownOpen}
+          >
+            <Avatar className="w-10 h-10">
+              <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
+            </Avatar>
+          </button>
+          {desktopProfileDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-32 bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
+              <button
+                className="block w-full text-left px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+                onClick={() => {
+                  localStorage.removeItem("currentUser");
+                  router.push("/auth");
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

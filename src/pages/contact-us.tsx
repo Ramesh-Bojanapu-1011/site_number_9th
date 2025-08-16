@@ -14,7 +14,7 @@ const ContactUsPage = (props: Props) => {
   return (
     <>
       <Headder />
-      <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden">
+      <main className="bg-white dark:bg-gray-900 transition-colors duration-500 not-md:overflow-x-hidden">
         {/* 1. Hero Section */}
         <section className="flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[100vh]">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg text-center">
