@@ -152,7 +152,7 @@ const Headder = (props: Props) => {
       <nav className="hidden md:flex gap-6 items-center">
         <div className="relative" ref={desktopHomeRef}>
           <button
-            className="flex items-center gap-1 text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition focus:outline-none"
+            className="text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition font-semibold flex justify-center items-center"
             onClick={() => setDesktopHomeOpen((open) => !open)}
             aria-haspopup="true"
             aria-expanded={desktopHomeOpen}
@@ -197,7 +197,7 @@ const Headder = (props: Props) => {
         </Link>
         <div className="relative" ref={desktopShopRef}>
           <button
-            className="flex items-center gap-1 text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition focus:outline-none"
+            className="text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition font-semibold flex justify-center items-center"
             onClick={() => setDesktopShopOpen((open) => !open)}
             aria-haspopup="true"
             aria-expanded={desktopShopOpen}
@@ -226,26 +226,50 @@ const Headder = (props: Props) => {
                 All Products
               </Link>
               <Link
-                href="#"
+                href="/iphone-13"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop2
+                Iphone 13
               </Link>
               <Link
-                href="#"
+                href="/led-tv"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop3
+                LED TV
               </Link>
               <Link
-                href="#"
+                href="/blender-pro"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop4
+                Blender Pro
+              </Link>
+              <Link
+                href="/vacum-cleaner"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Vacum Cleaner
+              </Link>
+              <Link
+                href="/wireless-earbuds"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Wireless Earbuds
+              </Link>
+              <Link
+                href="/coffee-maker"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Coffee Maker
               </Link>
             </div>
           )}
         </div>
+        <Link
+          href="/blog"
+          className="text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition font-semibold"
+        >
+          Blog
+        </Link>
 
         <Link
           href="/contact-us"
@@ -364,22 +388,40 @@ const Headder = (props: Props) => {
                 All Products
               </Link>
               <Link
-                href="#"
+                href="/iphone-13"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop2
+                Iphone 13
               </Link>
               <Link
-                href="#"
+                href="/led-tv"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop3
+                LED TV
               </Link>
               <Link
-                href="#"
+                href="/blender-pro"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop4
+                Blender Pro
+              </Link>
+              <Link
+                href="/vacum-cleaner"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Vacum Cleaner
+              </Link>
+              <Link
+                href="/wireless-earbuds"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Wireless Earbuds
+              </Link>
+              <Link
+                href="/coffee-maker"
+                className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
+              >
+                Coffee Maker
               </Link>
             </div>
           )}
