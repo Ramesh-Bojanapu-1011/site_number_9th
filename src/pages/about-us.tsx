@@ -47,7 +47,7 @@ const AboutUsPage = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     counterRefs.current.forEach((ref) => {
       if (ref) {

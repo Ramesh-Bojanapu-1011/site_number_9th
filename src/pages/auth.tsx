@@ -47,7 +47,7 @@ const AuthPage = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const userIndex = users.findIndex(
       (u: any) =>
-        u.email === loginForm.email && u.password === loginForm.password
+        u.email === loginForm.email && u.password === loginForm.password,
     );
     if (userIndex === -1) {
       setLoginError("Invalid email or password.");
