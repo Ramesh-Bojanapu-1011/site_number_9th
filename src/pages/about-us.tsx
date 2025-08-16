@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Headder from "@/components/Headder";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -46,7 +47,7 @@ const AboutUsPage = () => {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.5 }
     );
     counterRefs.current.forEach((ref) => {
       if (ref) {
@@ -76,11 +77,12 @@ const AboutUsPage = () => {
         {/* 2. About Our Store Section */}
         <section className="py-16 px-4 bg-white dark:bg-gray-900">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            <img
-              src="/globe.svg"
+            <Image
+              src="/who-we-are.jpg"
               alt="Our Store"
               data-aos="fade-right"
-              className="w-40 h-40 md:w-56 md:h-56 object-contain mb-6 md:mb-0"
+              width={300}
+              height={300}
             />
             <div className="flex-1" data-aos="fade-left">
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
@@ -117,7 +119,7 @@ const AboutUsPage = () => {
                 transparency, and building lasting relationships with our
                 customers and partners.
               </p>
-              <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300">
+              <ul className="list-disc pl-6 text-gray-600  dark:text-gray-300  ">
                 <li>Wide range of top-quality products</li>
                 <li>Secure and easy checkout</li>
                 <li>24/7 customer support</li>
@@ -125,10 +127,11 @@ const AboutUsPage = () => {
               </ul>
             </div>
             <div className="flex-1 flex justify-center" data-aos="fade-left">
-              <img
-                src="/globe.svg"
+              <Image
+                src="/our-mission.jpg"
                 alt="Mission"
-                className="w-40 h-40 md:w-56 md:h-56"
+                width={300}
+                height={300}
               />
             </div>
           </div>
@@ -178,31 +181,37 @@ const AboutUsPage = () => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { name: "Ramesh B.", role: "Founder & CEO", img: "/file.svg" },
+                {
+                  name: "Ramesh B.",
+                  role: "Founder & CEO",
+                  img: "/agents/1.jpg",
+                },
                 {
                   name: "Priya S.",
                   role: "Head of Marketing",
-                  img: "/window.svg",
+                  img: "/agents/2.jpg",
                 },
                 {
                   name: "Rahul K.",
                   role: "Lead Developer",
-                  img: "/vercel.svg",
+                  img: "/agents/3.jpg",
                 },
                 {
                   name: "Ayesha M.",
                   role: "Customer Success",
-                  img: "/next.svg",
+                  img: "/agents/4.jpg",
                 },
               ].map((member) => (
                 <div
                   key={member.name}
                   className="flex flex-col items-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 rounded-2xl shadow p-6 animate-zoom-in"
                 >
-                  <img
+                  <Image
                     src={member.img}
                     alt={member.name}
-                    className="w-20 h-20 rounded-full mb-4"
+                    className="w-20 h-20 rounded-full mb-4 object-cover"
+                    width={80}
+                    height={80}
                   />
                   <span className="font-bold text-lg text-blue-700 dark:text-pink-200">
                     {member.name}
@@ -231,18 +240,18 @@ const AboutUsPage = () => {
                   name: "Priya S.",
                   review:
                     "Amazing service and fast delivery! Highly recommend MyShop.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Rahul K.",
                   review:
                     "Great deals on electronics. The headphones I bought are fantastic!",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Ayesha M.",
                   review: "Loved the fashion collection. Will shop again!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -253,10 +262,12 @@ const AboutUsPage = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full bg-white object-cover object-top"
+                      width={300}
+                      height={300}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { Eye, EyeOff, WifiZero } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
 
 const AuthPage = () => {
   const router = useRouter();
@@ -46,7 +47,7 @@ const AuthPage = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const userIndex = users.findIndex(
       (u: any) =>
-        u.email === loginForm.email && u.password === loginForm.password,
+        u.email === loginForm.email && u.password === loginForm.password
     );
     if (userIndex === -1) {
       setLoginError("Invalid email or password.");
@@ -92,138 +93,179 @@ const AuthPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
-      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-md ">
-        {mode === "login" ? (
-          <form onSubmit={handleLoginSubmit}>
-            <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
-              Login
-            </h2>
-            {loginError && (
-              <div className="mb-4 text-red-500">{loginError}</div>
-            )}
-            <div className="mb-4">
-              <input
-                name="email"
-                value={loginForm.email}
-                onChange={handleLoginChange}
-                placeholder="Email"
-                type="email"
-                className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
-              />
-              <div className="relative">
+      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-0 w-full max-w-3xl   overflow-hidden relative">
+        {/* Login Side */}
+        <div
+          className={`flex-1 flex flex-row items-center justify-center p-10 transition-all duration-700 ${
+            mode === "login" ? "opacity-100 translate-x-0 z-10" : " hidden"
+          }`}
+          style={{ minWidth: 340 }}
+        >
+          <div className="flex-1 flex flex-col  justify-center h-full">
+            <form
+              onSubmit={handleLoginSubmit}
+              className="w-full h-full flex flex-col justify-center"
+            >
+              <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
+                Login
+              </h2>
+              {loginError && (
+                <div className="mb-4 text-red-500">{loginError}</div>
+              )}
+              <div className="mb-4">
                 <input
-                  name="password"
-                  value={loginForm.password}
+                  name="email"
+                  value={loginForm.email}
                   onChange={handleLoginChange}
-                  placeholder="Password"
-                  type={loginShowPassword ? "text" : "password"}
-                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 pr-10"
+                  placeholder="Email"
+                  type="email"
+                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
                 />
-                <button
-                  type="button"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300 text-sm"
-                  tabIndex={-1}
-                  onClick={() => setLoginShowPassword((v) => !v)}
-                >
-                  {loginShowPassword ? <EyeOff size={19} /> : <Eye size={19} />}
-                </button>
+                <div className="relative">
+                  <input
+                    name="password"
+                    value={loginForm.password}
+                    onChange={handleLoginChange}
+                    placeholder="Password"
+                    type={loginShowPassword ? "text" : "password"}
+                    className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 pr-10"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300 text-sm"
+                    tabIndex={-1}
+                    onClick={() => setLoginShowPassword((v) => !v)}
+                  >
+                    {loginShowPassword ? (
+                      <EyeOff size={19} />
+                    ) : (
+                      <Eye size={19} />
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-            <button
-              type="submit"
-              className="w-full py-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-bold text-lg shadow-lg hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300"
-            >
-              Login
-            </button>
-            <WifiZero size={19} />
-          </form>
-        ) : (
-          <form onSubmit={handleRegisterSubmit}>
-            <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
-              Register
-            </h2>
-            {registerError && (
-              <div className="mb-4 text-red-500">{registerError}</div>
-            )}
-            {registerSuccess && (
-              <div className="mb-4 text-green-500">{registerSuccess}</div>
-            )}
-            <div className="mb-4">
-              <input
-                name="firstName"
-                value={registerForm.firstName}
-                onChange={handleRegisterChange}
-                placeholder="First Name"
-                className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
-              />
-              <input
-                name="lastName"
-                value={registerForm.lastName}
-                onChange={handleRegisterChange}
-                placeholder="Last Name"
-                className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
-              />
-              <input
-                name="email"
-                value={registerForm.email}
-                onChange={handleRegisterChange}
-                placeholder="Email"
-                type="email"
-                className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
-              />
-              <div className="relative mb-2">
-                <input
-                  name="password"
-                  value={registerForm.password}
-                  onChange={handleRegisterChange}
-                  placeholder="Password"
-                  type={registerShowPassword ? "text" : "password"}
-                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 pr-10"
-                />
-                <button
-                  type="button"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300 text-sm"
-                  tabIndex={-1}
-                  onClick={() => setRegisterShowPassword((v) => !v)}
-                >
-                  {registerShowPassword ? (
-                    <EyeOff size={19} />
-                  ) : (
-                    <Eye size={19} />
-                  )}
-                </button>
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="w-full py-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-bold text-lg shadow-lg hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300"
-            >
-              Register
-            </button>
-          </form>
-        )}
-        <div className="mt-6 text-center">
-          {mode === "login" ? (
-            <span className="text-gray-600 dark:text-gray-300">
-              Don't have an account?{" "}
               <button
-                className="text-blue-600 dark:text-yellow-200 hover:underline"
-                onClick={() => setMode("register")}
-              >
-                Register
-              </button>
-            </span>
-          ) : (
-            <span className="text-gray-600 dark:text-gray-300">
-              Already have an account?{" "}
-              <button
-                className="text-blue-600 dark:text-yellow-200 hover:underline"
-                onClick={() => setMode("login")}
+                type="submit"
+                className="w-full py-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-bold text-lg shadow-lg hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300"
               >
                 Login
               </button>
-            </span>
-          )}
+            </form>
+            <div className="mt-6 text-center">
+              <span className="text-gray-600 dark:text-gray-300">
+                Don't have an account?{" "}
+                <button
+                  className="text-blue-600 dark:text-yellow-200 hover:underline transition-colors duration-300"
+                  onClick={() => setMode("register")}
+                >
+                  Register
+                </button>
+              </span>
+            </div>
+          </div>
+          <Image
+            src="/login-side.png"
+            alt="Login Illustration"
+            className="  object-contain ml-8 drop-shadow-xl animate-fade-in"
+            draggable="false"
+            width={300}
+            height={300}
+          />
+        </div>
+        {/* Register Side */}
+        <div
+          className={`flex-1 flex flex-row items-center justify-center p-10 transition-all duration-700 ${
+            mode === "register" ? "opacity-100 translate-x-0 z-10" : " hidden"
+          }`}
+          style={{ minWidth: 340 }}
+        >
+          <div className="w-1/2 ">
+            <form
+              onSubmit={handleRegisterSubmit}
+              className="  h-full flex flex-col justify-center"
+            >
+              <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 mb-6 animate-gradient-x text-center">
+                Register
+              </h2>
+              {registerError && (
+                <div className="mb-4 text-red-500">{registerError}</div>
+              )}
+              {registerSuccess && (
+                <div className="mb-4 text-green-500">{registerSuccess}</div>
+              )}
+              <div className="mb-4">
+                <input
+                  name="firstName"
+                  value={registerForm.firstName}
+                  onChange={handleRegisterChange}
+                  placeholder="First Name"
+                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
+                />
+                <input
+                  name="lastName"
+                  value={registerForm.lastName}
+                  onChange={handleRegisterChange}
+                  placeholder="Last Name"
+                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
+                />
+                <input
+                  name="email"
+                  value={registerForm.email}
+                  onChange={handleRegisterChange}
+                  placeholder="Email"
+                  type="email"
+                  className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 mb-2"
+                />
+                <div className="relative mb-2">
+                  <input
+                    name="password"
+                    value={registerForm.password}
+                    onChange={handleRegisterChange}
+                    placeholder="Password"
+                    type={registerShowPassword ? "text" : "password"}
+                    className="w-full px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 pr-10"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300 text-sm"
+                    tabIndex={-1}
+                    onClick={() => setRegisterShowPassword((v) => !v)}
+                  >
+                    {registerShowPassword ? (
+                      <EyeOff size={19} />
+                    ) : (
+                      <Eye size={19} />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-bold text-lg shadow-lg hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300"
+              >
+                Register
+              </button>
+            </form>
+            <div className="mt-6 text-center">
+              <span className="text-gray-600 dark:text-gray-300">
+                Already have an account?{" "}
+                <button
+                  className="text-blue-600 dark:text-yellow-200 hover:underline transition-colors duration-300"
+                  onClick={() => setMode("login")}
+                >
+                  Login
+                </button>
+              </span>
+            </div>
+          </div>
+          <Image
+            src="/register-side.png"
+            alt="Register Illustration"
+            className="  object-contain ml-8 drop-shadow-xl animate-fade-in"
+            draggable="false"
+            width={300}
+            height={300}
+          />
         </div>
       </div>
       <style jsx global>{`
@@ -237,7 +279,7 @@ const AuthPage = () => {
             transform: translateY(0);
           }
         }
-        . {
+        .animate-fade-in {
           animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         @keyframes gradient-x {
