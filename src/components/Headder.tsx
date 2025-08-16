@@ -167,7 +167,7 @@ const Headder = (props: Props) => {
             aria-haspopup="true"
             aria-expanded={desktopShopOpen}
           >
-            Shop
+            Products
             <svg
               className="w-4 h-4 ml-1"
               fill="none"
@@ -185,10 +185,10 @@ const Headder = (props: Props) => {
           {desktopShopOpen && (
             <div className="absolute left-0 mt-2 w-40 bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
               <Link
-                href="#"
+                href="/products"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop1
+                All Products
               </Link>
               <Link
                 href="#"
@@ -294,7 +294,7 @@ const Headder = (props: Props) => {
         </div>
         <Link
           href="/about-us"
-          className="text-white hover:text-yellow-300 dark:text-yellow-200 dark:hover:text-pink-400 transition font-semibold"
+          className="block text-blue-700 dark:text-pink-200 py-2 hover:text-yellow-600 dark:hover:text-pink-400 transition font-semibold"
         >
           About Us
         </Link>
@@ -305,7 +305,7 @@ const Headder = (props: Props) => {
             aria-haspopup="true"
             aria-expanded={mobileShopOpen}
           >
-            Shop
+            Products
             <svg
               className="w-4 h-4 ml-1"
               fill="none"
@@ -323,10 +323,10 @@ const Headder = (props: Props) => {
           {mobileShopOpen && (
             <div className="ml-4 mt-1 flex flex-col bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl border border-blue-200 dark:border-pink-900">
               <Link
-                href="#"
+                href="/products"
                 className="block px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
               >
-                Shop1
+                All Products
               </Link>
               <Link
                 href="#"

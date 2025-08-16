@@ -1,11 +1,17 @@
-import React from 'react'
+import Footer from "@/components/Footer";
+import Headder from "@/components/Headder";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const home2 = (props: Props) => {
   return (
-    <div>home2</div>
-  )
-}
+    <>
+      <Headder />
+      <main></main>
+      <Footer />
+    </>
+  );
+};
 
-export default home2
+export default home2;

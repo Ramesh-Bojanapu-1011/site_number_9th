@@ -29,13 +29,37 @@ const Home1 = (props: Props) => {
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900 animate-fade-left">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
             <div className="flex-1 flex justify-center mb-8 md:mb-0">
-              <Image src="/globe.svg" alt="About MyShop" width={240} height={240} className="w-48 h-48 md:w-60 md:h-60 object-contain" />
+              <Image
+                src="/globe.svg"
+                alt="About MyShop"
+                width={240}
+                height={240}
+                className="w-48 h-48 md:w-60 md:h-60 object-contain"
+              />
             </div>
             <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-              <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">About MyShop</h2>
-              <p className="mb-6 text-lg text-gray-700 dark:text-gray-200">MyShop is your trusted online destination for the latest electronics, fashion, home essentials, and more. We are committed to delivering quality products, unbeatable prices, and a seamless shopping experience. Our mission is to make online shopping easy, secure, and enjoyable for everyone.</p>
-              <p className="mb-8 text-base text-gray-600 dark:text-gray-300">With fast shipping, dedicated customer support, and a wide range of products, MyShop is here to help you find exactly what you need. Discover why thousands of customers choose us for their everyday shopping!</p>
-              <Link href="/about" className="inline-block px-8 py-3 rounded-full bg-blue-600 text-white font-bold text-lg shadow-lg hover:scale-105 hover:bg-blue-700 transition-all duration-300 dark:bg-pink-500 dark:text-white dark:hover:bg-pink-600 ">Learn More About Us</Link>
+              <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
+                About MyShop
+              </h2>
+              <p className="mb-6 text-lg text-gray-700 dark:text-gray-200">
+                MyShop is your trusted online destination for the latest
+                electronics, fashion, home essentials, and more. We are
+                committed to delivering quality products, unbeatable prices, and
+                a seamless shopping experience. Our mission is to make online
+                shopping easy, secure, and enjoyable for everyone.
+              </p>
+              <p className="mb-8 text-base text-gray-600 dark:text-gray-300">
+                With fast shipping, dedicated customer support, and a wide range
+                of products, MyShop is here to help you find exactly what you
+                need. Discover why thousands of customers choose us for their
+                everyday shopping!
+              </p>
+              <Link
+                href="/about-us"
+                className="inline-block px-8 py-3 rounded-full bg-blue-600 text-white font-bold text-lg shadow-lg hover:scale-105 hover:bg-blue-700 transition-all duration-300 dark:bg-pink-500 dark:text-white dark:hover:bg-pink-600 "
+              >
+                Learn More About Us
+              </Link>
             </div>
           </div>
         </section>

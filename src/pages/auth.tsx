@@ -43,7 +43,7 @@ const AuthPage = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const user = users.find(
       (u: any) =>
-        u.email === loginForm.email && u.password === loginForm.password
+        u.email === loginForm.email && u.password === loginForm.password,
     );
     if (!user) {
       setLoginError("Invalid email or password.");
@@ -119,7 +119,6 @@ const AuthPage = () => {
                 >
                   {loginShowPassword ? <EyeOff size={19} /> : <Eye size={19} />}
                 </button>
-                
               </div>
             </div>
             <button
