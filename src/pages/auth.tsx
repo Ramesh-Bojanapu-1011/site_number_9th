@@ -30,26 +30,33 @@ const AuthPage = () => {
       loginForm.email === "admin@enkonix.in" &&
       loginForm.password === "admin123"
     ) {
+      const now = new Date().toISOString();
       const adminUser = {
         email: loginForm.email,
         password: loginForm.password,
         firstName: "Admin",
         lastName: "User",
+        registeredAt: now,
+        lastLoginAt: now,
       };
       localStorage.setItem("currentUser", JSON.stringify(adminUser));
       router.push("/admin-dashbord");
       return;
     }
     const users = JSON.parse(localStorage.getItem("users") || "[]");
-    const user = users.find(
+    const userIndex = users.findIndex(
       (u: any) =>
         u.email === loginForm.email && u.password === loginForm.password,
     );
-    if (!user) {
+    if (userIndex === -1) {
       setLoginError("Invalid email or password.");
       return;
     }
-    localStorage.setItem("currentUser", JSON.stringify(user));
+    // Update lastLoginAt for the user
+    const now = new Date().toISOString();
+    users[userIndex].lastLoginAt = now;
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
     router.push("/home1");
   };
 
@@ -73,7 +80,8 @@ const AuthPage = () => {
       setRegisterError("Email already registered.");
       return;
     }
-    users.push({ ...registerForm });
+    const now = new Date().toISOString();
+    users.push({ ...registerForm, registeredAt: now, lastLoginAt: null });
     localStorage.setItem("users", JSON.stringify(users));
     setRegisterSuccess("Registration successful! Redirecting to login...");
     setTimeout(() => {

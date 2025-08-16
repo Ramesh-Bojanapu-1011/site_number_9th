@@ -451,6 +451,17 @@ const Headder = (props: Props) => {
                 <button
                   className="block w-full text-left px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
                   onClick={() => {
+                    // Store logout time for current user
+                    const currentUserStr = localStorage.getItem("currentUser");
+                    if (currentUserStr) {
+                      const currentUser = JSON.parse(currentUserStr);
+                      const users = JSON.parse(localStorage.getItem("users") || "[]");
+                      const idx = users.findIndex((u: any) => u.email === currentUser.email);
+                      if (idx !== -1) {
+                        users[idx].lastLogoutAt = new Date().toISOString();
+                        localStorage.setItem("users", JSON.stringify(users));
+                      }
+                    }
                     localStorage.removeItem("currentUser");
                     router.push("/auth");
                   }}
@@ -480,6 +491,17 @@ const Headder = (props: Props) => {
               <button
                 className="block w-full text-left px-4 py-2 text-blue-700 dark:text-pink-200 hover:bg-blue-200 dark:hover:bg-pink-900 rounded transition"
                 onClick={() => {
+                  // Store logout time for current user
+                  const currentUserStr = localStorage.getItem("currentUser");
+                  if (currentUserStr) {
+                    const currentUser = JSON.parse(currentUserStr);
+                    const users = JSON.parse(localStorage.getItem("users") || "[]");
+                    const idx = users.findIndex((u: any) => u.email === currentUser.email);
+                    if (idx !== -1) {
+                      users[idx].lastLogoutAt = new Date().toISOString();
+                      localStorage.setItem("users", JSON.stringify(users));
+                    }
+                  }
                   localStorage.removeItem("currentUser");
                   router.push("/auth");
                 }}
