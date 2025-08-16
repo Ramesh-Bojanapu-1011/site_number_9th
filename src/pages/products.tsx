@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
 const allProducts = [
   {
     id: 1,
-    name: "Smartphone X",
+    name: "Iphone 13",
     category: "Electronics",
     price: "$499",
     img: "/globe.svg",
+    link: "/iphone-13",
     desc: "Latest model, unbeatable price!",
   },
   {
@@ -16,6 +19,7 @@ const allProducts = [
     name: "LED TV",
     category: "Electronics",
     price: "$799",
+    link: "/led-tv",
     img: "/vercel.svg",
     desc: "Crystal clear display.",
   },
@@ -24,15 +28,17 @@ const allProducts = [
     name: "Blender Pro",
     category: "Home Appliances",
     price: "$59",
+    link: "/blender-pro",
     img: "/window.svg",
     desc: "Make healthy smoothies at home.",
   },
 
   {
     id: 4,
-    name: "Vacuum Cleaner",
+    name: "Vacum Cleaner",
     category: "Home Appliances",
     price: "$120",
+    link: "/vacum-cleaner",
     img: "/globe.svg",
     desc: "Powerful and silent.",
   },
@@ -41,6 +47,7 @@ const allProducts = [
     name: "Wireless Earbuds",
     category: "Electronics",
     price: "$99",
+    link: "/wireless-earbuds",
     img: "/vercel.svg",
     desc: "Crystal clear sound.",
   },
@@ -49,6 +56,7 @@ const allProducts = [
     name: "Coffee Maker",
     category: "Home Appliances",
     price: "$75",
+    link: "/coffee-maker",
     img: "/window.svg",
     desc: "Fresh coffee every morning.",
   },
@@ -70,7 +78,7 @@ const ProductsPage = () => {
 
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden">
         {/* 1. Hero Section */}
-        <section className="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[60vh] w-full py-16">
+        <section className="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[100vh] w-full py-16">
           <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg text-center">
             Our Products
           </h1>
@@ -126,9 +134,12 @@ const ProductsPage = () => {
                     <span className="text-2xl font-extrabold text-blue-700 dark:text-yellow-200 mb-4">
                       {product.price}
                     </span>
-                    <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition">
-                      Add to Cart
-                    </button>
+                    <Link
+                      href={product.link}
+                      className="px-6 py-2 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition"
+                    >
+                      Get it now
+                    </Link>
                   </div>
                 ))
               )}
@@ -136,23 +147,28 @@ const ProductsPage = () => {
           </div>
         </section>
 
-        {/* 4. Featured Brands Section */}
+        {/* 4. How It Works Section */}
         <section className="py-16 px-4 bg-white dark:bg-gray-900">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8 text-blue-700 dark:text-pink-200">
-              Featured Brands
-            </h2>
-            <div className="flex flex-wrap justify-center gap-8">
-              {["Sony", "Samsung", "LG", "Philips", "Whirlpool", "Bose"].map(
-                (brand) => (
-                  <span
-                    key={brand}
-                    className="px-6 py-3 rounded-full bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-blue-700 dark:text-pink-200 font-semibold text-lg shadow animate-zoom-in"
-                  >
-                    {brand}
-                  </span>
-                )
-              )}
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-1" data-aos="fade-right">
+              <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
+                How It Works
+              </h2>
+              <ol className="list-decimal pl-6 text-gray-700 dark:text-gray-200 text-lg space-y-2">
+                <li>Browse our curated selection of products by category.</li>
+                <li>
+                  Add your favorite items to the cart with a single click.
+                </li>
+                <li>Checkout securely and track your order in real time.</li>
+                <li>Enjoy fast delivery and top-notch customer support.</li>
+              </ol>
+            </div>
+            <div className="flex-1 flex justify-center" data-aos="fade-left">
+              <img
+                src="/globe.svg"
+                alt="How It Works"
+                className="w-56 h-56 md:w-72 md:h-72 object-contain"
+              />
             </div>
           </div>
         </section>
@@ -160,6 +176,9 @@ const ProductsPage = () => {
         {/* 5. Why Shop With Us Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-1 flex justify-center" data-aos="fade-right">
+              <Image src="/globe.svg" alt="Why Shop" width={224} height={224} />
+            </div>
             <div className="flex-1" data-aos="fade-right">
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
                 Why Shop With Us?
@@ -170,13 +189,6 @@ const ProductsPage = () => {
                 <li>24/7 customer support</li>
                 <li>Fast, reliable shipping</li>
               </ul>
-            </div>
-            <div className="flex-1 flex justify-center" data-aos="fade-left">
-              <img
-                src="/globe.svg"
-                alt="Why Shop"
-                className="w-40 h-40 md:w-56 md:h-56"
-              />
             </div>
           </div>
         </section>
