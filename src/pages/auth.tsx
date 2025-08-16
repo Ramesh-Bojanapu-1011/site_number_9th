@@ -96,7 +96,7 @@ const AuthPage = () => {
       <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-0 w-full max-w-3xl   overflow-hidden relative">
         {/* Login Side */}
         <div
-          className={`flex-1 flex flex-row items-center justify-center p-10 transition-all duration-700 ${
+          className={`flex-1 flex flex-row not-md:flex-col-reverse items-center justify-center p-10 transition-all duration-700 ${
             mode === "login" ? "opacity-100 translate-x-0 z-10" : " hidden"
           }`}
           style={{ minWidth: 340 }}
@@ -174,12 +174,12 @@ const AuthPage = () => {
         </div>
         {/* Register Side */}
         <div
-          className={`flex-1 flex flex-row items-center justify-center p-10 transition-all duration-700 ${
+          className={`flex-1 flex flex-row not-md:flex-col-reverse   items-center justify-center p-10 transition-all duration-700 ${
             mode === "register" ? "opacity-100 translate-x-0 z-10" : " hidden"
           }`}
           style={{ minWidth: 340 }}
         >
-          <div className="w-1/2 ">
+          <div className="  ">
             <form
               onSubmit={handleRegisterSubmit}
               className="  h-full flex flex-col justify-center"
