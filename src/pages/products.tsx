@@ -169,7 +169,7 @@ const ProductsPage = () => {
               <Image
                 src="/how-it-works.png"
                 alt="How It Works"
-                className="w-56 h-56 md:w-72 md:h-72 object-contain"
+                className="w-[100%] h-56 md:w-72 md:h-72 object-contain"
                 width={288}
                 height={288}
               />
@@ -184,6 +184,7 @@ const ProductsPage = () => {
               <Image
                 src="/why-shop-with-us.png"
                 alt="Why Shop With Us"
+                className="w-[100%] h-56 md:w-72 md:h-72 object-cover"
                 width={224}
                 height={224}
               />

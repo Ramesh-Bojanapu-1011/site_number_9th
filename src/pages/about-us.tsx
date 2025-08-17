@@ -107,7 +107,7 @@ const AboutUsPage = () => {
         <section className="py-16 px-4 bg-white dark:bg-gray-900">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
             <div
-              className="flex-1 flex flex-col items-center md:items-start text-center md:text-left "
+              className="flex-1 flex flex-col items-center md:items-start   md:text-left "
               data-aos="fade-right"
             >
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
@@ -119,7 +119,7 @@ const AboutUsPage = () => {
                 transparency, and building lasting relationships with our
                 customers and partners.
               </p>
-              <ul className="list-disc pl-6 text-gray-600  dark:text-gray-300  ">
+              <ul className="list-disc md:pl-5  text-gray-600  dark:text-gray-300  ">
                 <li>Wide range of top-quality products</li>
                 <li>Secure and easy checkout</li>
                 <li>24/7 customer support</li>
