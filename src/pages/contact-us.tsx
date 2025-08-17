@@ -3,14 +3,52 @@ import Headder from "@/components/Headder";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Building2, Mail, PhoneCall } from "lucide-react";
-import { useEffect } from "react";
+import React from "react";
 
 type Props = {};
 
 const ContactUsPage = (props: Props) => {
-  useEffect(() => {
+  const formRef = React.useRef<HTMLFormElement | null>(null);
+  const [success, setSuccess] = React.useState(false);
+  React.useEffect(() => {
     AOS.init({ once: true, duration: 800, offset: 80 });
   }, []);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+    if (!form) return;
+
+    const formData = new FormData(form);
+    const action = form.getAttribute("action");
+
+    if (!action) {
+      alert("Form action URL not found.");
+      return;
+    }
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const content = await response.json();
+      console.log("Form submission successful:", content);
+
+      if (response.ok) {
+        form.reset();
+        setSuccess(true);
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Oops! Something went wrong.");
+    }
+  };
   return (
     <>
       <Headder />
@@ -71,19 +109,28 @@ const ContactUsPage = (props: Props) => {
             <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-pink-200 text-center">
               Send Us a Message
             </h2>
-            <form className="flex flex-col  gap-4 ">
+            <form
+              className="flex flex-col  gap-4 "
+              ref={formRef}
+              onSubmit={handleSubmit}
+              action="https://formspree.io/f/xovlekvg"
+              method="POST"
+            >
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none"
               />
               <textarea
                 placeholder="Your Message"
+                name="message"
                 rows={4}
                 className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 focus:outline-none"
               />
@@ -94,6 +141,14 @@ const ContactUsPage = (props: Props) => {
                 Send Message
               </button>
             </form>
+            {success && (
+              <p
+                id="successMessage"
+                style={{ color: "green", marginTop: "10px" }}
+              >
+                Message sent successfully!
+              </p>
+            )}
           </div>
         </section>
 

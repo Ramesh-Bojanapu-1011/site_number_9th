@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Headder from "@/components/Headder";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 type Props = {};
 
@@ -27,11 +28,13 @@ const BlenderPro = () => {
               Buy Now
             </a>
           </div>
-          <img
+          <Image
             src="/blenderpro-main.png"
             alt="Blender Pro"
-            className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
+            className="w-64 h-64 md:w-100 md:h-100 object-cover  "
             data-aos="fade-left"
+            width={320}
+            height={320}
           />
         </section>
 
@@ -63,7 +66,7 @@ const BlenderPro = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
@@ -74,11 +77,13 @@ const BlenderPro = () => {
                 "/blenderpro-jug.png",
                 "/blenderpro-blades.png",
               ].map((img, idx) => (
-                <img
+                <Image
                   key={idx}
                   src={img}
                   alt={`Blender Pro view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[300px] object-cover rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  width={320}
+                  height={320}
                 />
               ))}
             </div>
@@ -114,7 +119,7 @@ const BlenderPro = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -123,17 +128,17 @@ const BlenderPro = () => {
                 {
                   name: "Ravi S.",
                   review: "Makes smoothies in seconds! Super easy to clean.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Anita D.",
                   review: "Powerful and quiet. I use it every day!",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Meena K.",
                   review: "Great for soups and sauces. Highly recommend!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -144,10 +149,12 @@ const BlenderPro = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full bg-white object-cover object-top"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

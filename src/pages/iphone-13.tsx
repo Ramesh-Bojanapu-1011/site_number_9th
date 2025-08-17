@@ -27,11 +27,13 @@ const Iphone13 = () => {
               Buy Now
             </a>
           </div>
-          <img
+          <Image
             src="/iphone13-main.png"
             alt="iPhone 13"
-            className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
+            className="w-64 h-64 md:w-100 md:h-100 object-cover  "
             data-aos="fade-left"
+            width={320}
+            height={320}
           />
         </section>
 
@@ -64,7 +66,7 @@ const Iphone13 = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
@@ -81,7 +83,7 @@ const Iphone13 = () => {
                   key={idx}
                   src={img}
                   alt={`iPhone 13 view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[300px] object-cover rounded-xl shadow   bg-white dark:bg-gray-900"
                 />
               ))}
             </div>
@@ -120,7 +122,7 @@ const Iphone13 = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -130,19 +132,19 @@ const Iphone13 = () => {
                   name: "Priya S.",
                   review:
                     "The iPhone 13 camera is amazing! Battery lasts all day.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Rahul K.",
                   review:
                     "Super fast and the display is gorgeous. Love the new design!",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Ayesha M.",
                   review:
                     "Face ID is so convenient and secure. Highly recommend!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -153,10 +155,12 @@ const Iphone13 = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full object-cover object-top bg-white"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

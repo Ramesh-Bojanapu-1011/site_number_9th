@@ -2,6 +2,7 @@ import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const CoffeeMaker = () => {
   return (
@@ -25,22 +26,26 @@ const CoffeeMaker = () => {
               Buy Now
             </a>
           </div>
-          <img
+          <Image
             src="/coffeemaker-main.png"
             alt="Coffee Maker"
-            className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
+            className="w-64 h-64 md:w-80 md:h-80 object-contain"
             data-aos="fade-left"
+            width={320}
+            height={320}
           />
         </section>
 
         {/* 2. About the Product Section */}
         <section className="py-16 px-4 bg-white dark:bg-gray-900">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            <img
+            <Image
               src="/coffeemaker-side.png"
               alt="Coffee Maker Side"
               className="w-40 h-40 md:w-56 md:h-56 object-contain mb-6 md:mb-0"
               data-aos="fade-right"
+              width={320}
+              height={320}
             />
             <div className="flex-1" data-aos="fade-left">
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
@@ -60,7 +65,7 @@ const CoffeeMaker = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
@@ -71,11 +76,13 @@ const CoffeeMaker = () => {
                 "/coffeemaker-cup.png",
                 "/coffeemaker-panel.png",
               ].map((img, idx) => (
-                <img
+                <Image
                   key={idx}
                   src={img}
                   alt={`Coffee Maker view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[260px] object-cover rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  width={320}
+                  height={320}
                 />
               ))}
             </div>
@@ -111,7 +118,7 @@ const CoffeeMaker = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -121,17 +128,17 @@ const CoffeeMaker = () => {
                   name: "Suman P.",
                   review:
                     "Coffee is hot and delicious every time! Love the timer.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Rakesh D.",
                   review: "Easy to use and clean. Looks great in my kitchen!",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Neha K.",
                   review: "Brews fast and keeps coffee warm for hours.",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -142,10 +149,12 @@ const CoffeeMaker = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full object-cover object-top bg-white"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

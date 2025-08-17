@@ -2,6 +2,7 @@ import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const VacumCleaner = () => {
   return (
@@ -26,11 +27,13 @@ const VacumCleaner = () => {
               Buy Now
             </a>
           </div>
-          <img
-            src="/vacuum-main.png"
+          <Image
+            src="/vacum-main.png"
             alt="Vacum Cleaner"
             className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
             data-aos="fade-left"
+            width={320}
+            height={320}
           />
         </section>
 
@@ -63,22 +66,24 @@ const VacumCleaner = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                "/vacuum-main.png",
+                "/vacum-main.png",
                 "/vacuum-side.png",
                 "/vacuum-dustbin.png",
                 "/vacuum-accessory.png",
               ].map((img, idx) => (
-                <img
+                <Image
                   key={idx}
                   src={img}
                   alt={`Vacum Cleaner view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[300px] object-cover object-center rounded-xl shadow   bg-white dark:bg-gray-900"
+                  width={400}
+                  height={400}
                 />
               ))}
             </div>
@@ -114,7 +119,7 @@ const VacumCleaner = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -124,18 +129,18 @@ const VacumCleaner = () => {
                   name: "Suresh P.",
                   review:
                     "Cleans my carpets perfectly! Lightweight and easy to use.",
-                  img: "/file.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Anjali R.",
                   review:
                     "Great suction and very quiet. Love the pet hair tool!",
-                  img: "/window.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Deepak M.",
                   review: "Dustbin is easy to empty. Highly recommend!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -146,10 +151,12 @@ const VacumCleaner = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full object-cover object-top bg-white"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

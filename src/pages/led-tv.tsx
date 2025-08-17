@@ -12,11 +12,11 @@ const LedTv = () => {
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden ">
         {/* 1. Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-between mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[60vh] w-full px-6 py-16">
-          <div className="flex-1 mb-8 md:mb-0" data-aos="fade-right">
+          <div className="  mb-8 md:mb-0" data-aos="fade-right">
             <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
               LED TV
             </h1>
-            <p className="text-xl max-w-lg opacity-90 mb-6">
+            <p className="text-xl max-w-xl opacity-90 mb-6">
               Experience cinematic visuals at home with our latest LED TV.
               Stunning clarity, vibrant colors, and smart features for the
               modern home.
@@ -28,11 +28,13 @@ const LedTv = () => {
               Buy Now
             </a>
           </div>
-          <img
+          <Image
             src="/ledtv-main.png"
             alt="LED TV"
-            className="w-64 h-64 md:w-80 md:h-80 object-contain animate-zoom-in"
+            className="w-64 h-64 md:w-100 md:h-100 object-cover  "
             data-aos="fade-left"
+            width={400}
+            height={400}
           />
         </section>
 
@@ -64,7 +66,7 @@ const LedTv = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
@@ -81,7 +83,7 @@ const LedTv = () => {
                   key={idx}
                   src={img}
                   alt={`LED TV view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[300px] object-cover rounded-xl shadow   bg-white dark:bg-gray-900"
                 />
               ))}
             </div>
@@ -117,7 +119,7 @@ const LedTv = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -127,17 +129,17 @@ const LedTv = () => {
                   name: "Sonia P.",
                   review:
                     "The picture quality is stunning! Streaming is super easy.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Amit R.",
                   review: "Great value for money. The sound is amazing.",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Leena M.",
                   review: "Love the smart features and slim design!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -148,10 +150,12 @@ const LedTv = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full object-cover object-top bg-white"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

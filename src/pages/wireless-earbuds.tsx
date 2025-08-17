@@ -2,7 +2,7 @@ import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-
+import Image from "next/image";
 const WirelessEarbuds = () => {
   return (
     <>
@@ -61,7 +61,7 @@ const WirelessEarbuds = () => {
 
         {/* 3. Product Images Gallery Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Gallery
             </h2>
@@ -72,11 +72,13 @@ const WirelessEarbuds = () => {
                 "/earbuds-in-ear.png",
                 "/earbuds-charging.png",
               ].map((img, idx) => (
-                <img
+                <Image
                   key={idx}
                   src={img}
                   alt={`Wireless Earbuds view ${idx + 1}`}
-                  className="w-full h-40 object-contain rounded-xl shadow animate-zoom-in bg-white dark:bg-gray-900"
+                  className="w-[100%] h-[300px]  object-cover object-center rounded-xl shadow   bg-white dark:bg-gray-900"
+                  width={400}
+                  height={400}
                 />
               ))}
             </div>
@@ -112,7 +114,7 @@ const WirelessEarbuds = () => {
 
         {/* 5. Customer Reviews Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-blue-700 dark:text-pink-200">
               Customer Reviews
             </h2>
@@ -121,18 +123,18 @@ const WirelessEarbuds = () => {
                 {
                   name: "Kiran S.",
                   review: "Great sound and battery life. Super comfortable!",
-                  img: "/file.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Priya M.",
                   review:
                     "Perfect for workouts. Stays in place and sounds amazing.",
-                  img: "/window.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
-                  name: "Rohit K.",
+                  name: "kiya K.",
                   review: "Easy to pair and use. Love the charging case!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -143,10 +145,12 @@ const WirelessEarbuds = () => {
                     “{cust.review}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full bg-white object-cover object-top"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

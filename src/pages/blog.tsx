@@ -1,6 +1,7 @@
 import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const BlogPage = () => {
   return (
@@ -28,21 +29,21 @@ const BlogPage = () => {
               {[
                 {
                   title: "5 Tips for Safe Online Shopping",
-                  img: "/file.svg",
+                  img: "/blog/5-tips-for-safe-online-shopping.png",
                   excerpt:
                     "Learn how to protect your data and shop securely on any e-commerce platform.",
                   link: "/5-tips-for-safe-online-shopping",
                 },
                 {
                   title: "How to Choose the Right one ",
-                  img: "/window.svg",
+                  img: "/blog/how-to-choose-the-right-one.png",
                   excerpt:
                     "A guide to picking the best gadgets for your needs and budget.",
                   link: "/how-to-choose-the-right-one",
                 },
                 {
                   title: "The Future of E-Commerce",
-                  img: "/vercel.svg",
+                  img: "/blog/the-future-of-e-commerce.png",
                   excerpt:
                     "Discover the innovations shaping the next generation of online shopping.",
                   link: "/the-future-of-e-commerce",
@@ -52,10 +53,12 @@ const BlogPage = () => {
                   key={i}
                   className="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 flex flex-col items-center animate-zoom-in"
                 >
-                  <img
+                  <Image
                     src={blog.img}
                     alt={blog.title}
-                    className="w-24 h-24 mb-4"
+                    className="w-[100%] h-[180px] mb-4 object-cover object-center rounded-lg"
+                    width={96}
+                    height={96}
                   />
                   <h3 className="font-bold text-xl mb-2 text-blue-700 dark:text-pink-200 text-center">
                     {blog.title}
@@ -108,19 +111,19 @@ const BlogPage = () => {
                   name: "Amit R.",
                   story:
                     "I found the perfect laptop for my work at a great price! Fast delivery and excellent support.",
-                  img: "/file.svg",
+                  img: "/customer/1.jpg",
                 },
                 {
                   name: "Leena M.",
                   story:
                     "Shopping for home appliances was so easy. The product recommendations were spot on!",
-                  img: "/window.svg",
+                  img: "/customer/2.jpg",
                 },
                 {
                   name: "Sonia P.",
                   story:
                     "I love the deals and discounts. My go-to site for all my shopping needs!",
-                  img: "/vercel.svg",
+                  img: "/customer/3.jpg",
                 },
               ].map((cust, i) => (
                 <div
@@ -131,10 +134,12 @@ const BlogPage = () => {
                     “{cust.story}”
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={cust.img}
                       alt={cust.name}
-                      className="w-10 h-10 rounded-full bg-white"
+                      className="w-10 h-10 rounded-full bg-white object-cover object-top"
+                      width={40}
+                      height={40}
                     />
                     <span className="font-bold text-blue-700 dark:text-yellow-100">
                       {cust.name}

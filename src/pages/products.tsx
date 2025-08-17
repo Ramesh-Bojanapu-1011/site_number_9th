@@ -10,7 +10,7 @@ const allProducts = [
     name: "Iphone 13",
     category: "Electronics",
     price: "$499",
-    img: "/globe.svg",
+    img: "/iphone13-main.png",
     link: "/iphone-13",
     desc: "Latest model, unbeatable price!",
   },
@@ -20,7 +20,7 @@ const allProducts = [
     category: "Electronics",
     price: "$799",
     link: "/led-tv",
-    img: "/vercel.svg",
+    img: "/ledtv-main.png",
     desc: "Crystal clear display.",
   },
   {
@@ -29,7 +29,7 @@ const allProducts = [
     category: "Home Appliances",
     price: "$59",
     link: "/blender-pro",
-    img: "/window.svg",
+    img: "/blenderpro-main.png",
     desc: "Make healthy smoothies at home.",
   },
 
@@ -39,7 +39,7 @@ const allProducts = [
     category: "Home Appliances",
     price: "$120",
     link: "/vacum-cleaner",
-    img: "/globe.svg",
+    img: "/vacum-main.png",
     desc: "Powerful and silent.",
   },
   {
@@ -48,7 +48,7 @@ const allProducts = [
     category: "Electronics",
     price: "$99",
     link: "/wireless-earbuds",
-    img: "/vercel.svg",
+    img: "/earbuds-main.png",
     desc: "Crystal clear sound.",
   },
   {
@@ -57,7 +57,7 @@ const allProducts = [
     category: "Home Appliances",
     price: "$75",
     link: "/coffee-maker",
-    img: "/window.svg",
+    img: "/coffeemaker-main.png",
     desc: "Fresh coffee every morning.",
   },
 ];
@@ -120,10 +120,12 @@ const ProductsPage = () => {
                     key={product.id}
                     className="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 flex flex-col items-center animate-zoom-in"
                   >
-                    <img
+                    <Image
                       src={product.img}
                       alt={product.name}
-                      className="w-24 h-24 mb-4"
+                      className="w-[100%] h-[300px] object-cover mb-4"
+                      width={96}
+                      height={96}
                     />
                     <span className="font-bold text-xl mb-2 text-blue-700 dark:text-pink-200">
                       {product.name}
@@ -164,10 +166,12 @@ const ProductsPage = () => {
               </ol>
             </div>
             <div className="flex-1 flex justify-center" data-aos="fade-left">
-              <img
-                src="/globe.svg"
+              <Image
+                src="/how-it-works.png"
                 alt="How It Works"
                 className="w-56 h-56 md:w-72 md:h-72 object-contain"
+                width={288}
+                height={288}
               />
             </div>
           </div>
@@ -177,7 +181,12 @@ const ProductsPage = () => {
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
             <div className="flex-1 flex justify-center" data-aos="fade-right">
-              <Image src="/globe.svg" alt="Why Shop" width={224} height={224} />
+              <Image
+                src="/why-shop-with-us.png"
+                alt="Why Shop With Us"
+                width={224}
+                height={224}
+              />
             </div>
             <div className="flex-1" data-aos="fade-right">
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
