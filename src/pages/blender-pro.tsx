@@ -3,12 +3,20 @@ import Headder from "@/components/Headder";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import Head from "next/head";
 
 type Props = {};
 
 const BlenderPro = () => {
   return (
     <>
+      <Head>
+        <title>Blender Pro - MyShop</title>
+        <meta
+          name="description"
+          content="Discover the Blender Pro, your ultimate kitchen companion for smoothies, soups, and more."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* 1. Hero Section */}

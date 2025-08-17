@@ -3,6 +3,7 @@ import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 const allProducts = [
   {
@@ -74,6 +75,13 @@ const ProductsPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Products - MyShop</title>
+        <meta
+          name="description"
+          content="Explore our wide range of products including electronics, home appliances, and more."
+        />
+      </Head>
       <Headder />
 
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden">

@@ -3,10 +3,18 @@ import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 const Iphone13 = () => {
   return (
     <>
+      <Head>
+        <title>iPhone 13 - MyShop</title>
+        <meta
+          name="description"
+          content="Discover the features and specifications of the iPhone 13."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden">
         {/* 1. Hero Section */}

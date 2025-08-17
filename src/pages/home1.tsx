@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Headder from "@/components/Headder";
 import { BellElectric } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,6 +11,13 @@ type Props = {};
 const Home1 = (props: Props) => {
   return (
     <>
+      <Head>
+        <title>Home1 - MyShop</title>
+        <meta
+          name="description"
+          content="Welcome to MyShop, your one-stop shop for all your needs."
+        />
+      </Head>
       <main className="min-h-screen w-full bg-white dark:bg-gray-900 transition-colors duration-500 caret-transparent">
         <Headder />
         {/* Hero Section - Full width, gradient, text centered */}

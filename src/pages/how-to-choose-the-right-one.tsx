@@ -1,10 +1,18 @@
 import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const HowToChooseTheRightOne = () => {
   return (
     <>
+      <Head>
+        <title>How to Choose the Right One - MyShop</title>
+        <meta
+          name="description"
+          content="A practical guide to picking the best electronics and appliances for your needs and budget."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* Hero Section */}

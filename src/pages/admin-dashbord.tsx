@@ -1,4 +1,5 @@
 import Headder from "@/components/Headder";
+import Head from "next/head";
 import React from "react";
 import {
   PieChart,
@@ -44,6 +45,13 @@ const AdminDashboard = () => {
 
   return (
     <>
+      <Head>
+        <title>Admin Dashboard - MyShop</title>
+        <meta
+          name="description"
+          content="Admin Dashboard for managing users and monitoring activity on MyShop."
+        />
+      </Head>
       <Headder />
       <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-8">
         <h1 className="text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 dark:from-yellow-200 dark:via-pink-400 dark:to-pink-600 animate-gradient-x">

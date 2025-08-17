@@ -3,9 +3,17 @@ import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 const WirelessEarbuds = () => {
   return (
     <>
+      <Head>
+        <title>Wireless Earbuds - MyShop</title>
+        <meta
+          name="description"
+          content="Discover the features and specifications of our latest Wireless Earbuds."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* 1. Hero Section */}

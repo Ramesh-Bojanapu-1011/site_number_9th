@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Headder from "@/components/Headder";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -61,6 +62,13 @@ const AboutUsPage = () => {
 
   return (
     <>
+      <Head>
+        <title>About Us - MyShop</title>
+        <meta
+          name="description"
+          content="Learn more about MyShop, our mission, and the team behind your favorite online store."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden caret-transparent ">
         {/* 1. Hero Section */}

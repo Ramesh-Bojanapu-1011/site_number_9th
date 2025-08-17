@@ -3,6 +3,7 @@ import Headder from "@/components/Headder";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Building2, Mail, PhoneCall } from "lucide-react";
+import Head from "next/head";
 import React from "react";
 
 type Props = {};
@@ -51,6 +52,13 @@ const ContactUsPage = (props: Props) => {
   };
   return (
     <>
+      <Head>
+        <title>Contact Us - MyShop</title>
+        <meta
+          name="description"
+          content="Get in touch with MyShop for any inquiries or support."
+        />
+      </Head>
       <Headder />
       <main className="bg-white dark:bg-gray-900 transition-colors duration-500 not-md:overflow-x-hidden">
         {/* 1. Hero Section */}

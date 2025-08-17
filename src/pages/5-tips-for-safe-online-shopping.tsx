@@ -1,10 +1,18 @@
 import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const FiveTipsForSafeOnlineShopping = () => {
   return (
     <>
+      <Head>
+        <title>5 Tips for Safe Online Shopping</title>
+        <meta
+          name="description"
+          content="Learn essential tips for safe online shopping and protecting your personal information."
+        />
+      </Head>
       <div className="sticky top-0 z-50">
         <Headder />
       </div>

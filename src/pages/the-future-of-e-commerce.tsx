@@ -1,10 +1,18 @@
 import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const TheFutureOfECommerce = () => {
   return (
     <>
+      <Head>
+        <title>The Future of E-Commerce - MyShop</title>
+        <meta
+          name="description"
+          content="Explore the trends and innovations shaping the future of online shopping."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* Hero Section */}

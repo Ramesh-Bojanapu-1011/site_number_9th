@@ -3,11 +3,19 @@ import Headder from "@/components/Headder";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 type Props = {};
 
 const Home2 = (props: Props) => {
   return (
     <>
+      <Head>
+        <title>Home2 - MyShop</title>
+        <meta
+          name="description"
+          content="Welcome to MyShop, your one-stop shop for all your needs."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden ">
         {/* Hero Banner */}

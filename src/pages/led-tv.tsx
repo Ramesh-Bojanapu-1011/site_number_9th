@@ -3,10 +3,18 @@ import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 const LedTv = () => {
   return (
     <>
+      <Head>
+        <title>LED TV - MyShop</title>
+        <meta
+          name="description"
+          content="Discover the features and specifications of our latest LED TV."
+        />
+      </Head>
       <Headder />
 
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden ">

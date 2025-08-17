@@ -2,10 +2,18 @@ import React from "react";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Head from "next/head";
 
 const BlogPage = () => {
   return (
     <>
+      <Head>
+        <title>E-Commerce Blog - MyShop</title>
+        <meta
+          name="description"
+          content="Stay updated with the latest trends and tips in e-commerce."
+        />
+      </Head>
       <Headder />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* 1. Hero Section */}
