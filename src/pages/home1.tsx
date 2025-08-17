@@ -53,14 +53,14 @@ const Home1 = (props: Props) => {
               <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-pink-200">
                 About MyShop
               </h2>
-              <p className="mb-6 text-lg text-gray-700 dark:text-gray-200">
+              <p className="mb-6 text-justify text-lg text-gray-700 dark:text-gray-200">
                 MyShop is your trusted online destination for the latest
                 electronics, fashion, home essentials, and more. We are
                 committed to delivering quality products, unbeatable prices, and
                 a seamless shopping experience. Our mission is to make online
                 shopping easy, secure, and enjoyable for everyone.
               </p>
-              <p className="mb-8 text-base text-gray-600 dark:text-gray-300">
+              <p className="mb-8 text-base text-justify text-gray-600 dark:text-gray-300">
                 With fast shipping, dedicated customer support, and a wide range
                 of products, MyShop is here to help you find exactly what you
                 need. Discover why thousands of customers choose us for their
@@ -470,7 +470,7 @@ const Home1 = (props: Props) => {
             <h2 className="text-4xl font-extrabold mb-4 text-white drop-shadow-lg">
               Ready to Experience the Best Shopping?
             </h2>
-            <p className="mb-8 text-lg text-white/90">
+            <p className="mb-8 text-lg text-justify text-white/90">
               Join thousands of happy customers and get exclusive access to the
               latest products, deals, and more. Shop with confidence at MyShop!
             </p>
