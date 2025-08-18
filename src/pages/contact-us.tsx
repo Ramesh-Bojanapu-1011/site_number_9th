@@ -75,7 +75,7 @@ const ContactUsPage = (props: Props) => {
         {/* 2. Contact Info Section */}
         <section
           data-aos="fade-up"
-          className="py-12 px-4 bg-gray-50 dark:bg-gray-800"
+          className="py-12 px-4 bg-gray-50 max-w-screen dark:bg-gray-800"
         >
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
@@ -111,7 +111,7 @@ const ContactUsPage = (props: Props) => {
         {/* 3. Contact Form Section */}
         <section
           data-aos="fade-left"
-          className="py-12 px-4 bg-white dark:bg-gray-900"
+          className="py-12 px-4 bg-white max-w-screen dark:bg-gray-900"
         >
           <div className="max-w-2xl mx-auto bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-pink-200 text-center">
@@ -163,7 +163,7 @@ const ContactUsPage = (props: Props) => {
         {/* 4. Map Section */}
         <section
           data-aos="fade-up"
-          className="py-12 px-4 bg-gray-50 dark:bg-gray-800"
+          className="py-12 px-4 bg-gray-50 dark:bg-gray-800 max-w-screen"
         >
           <div className="mx-auto rounded-2xl overflow-hidden shadow-lg">
             <iframe
@@ -179,7 +179,7 @@ const ContactUsPage = (props: Props) => {
         {/* 5. FAQ Section */}
         <section
           data-aos="fade-left"
-          className="py-12 px-4 bg-white dark:bg-gray-900"
+          className="py-12   max-w-screen bg-white dark:bg-gray-900"
         >
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold mb-6 text-blue-700 dark:text-pink-200 text-center">
