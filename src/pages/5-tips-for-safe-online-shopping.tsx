@@ -13,9 +13,9 @@ const FiveTipsForSafeOnlineShopping = () => {
           content="Learn essential tips for safe online shopping and protecting your personal information."
         />
       </Head>
-      <div className="sticky top-0 z-50">
-        <Headder />
-      </div>
+
+      <Headder />
+
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500 overflow-x-hidden scroll-smooth">
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white min-h-[40vh] w-full py-16">
