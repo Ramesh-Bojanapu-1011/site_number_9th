@@ -2,10 +2,11 @@ import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
 import Image from "next/image";
-import { Avatar, AvatarFallback } from "./ui/avatar";
+
 import { useRouter } from "next/navigation"; // or "next/router" if using pages directory
 import { useLanguage, languages } from "../context/LanguageContext";
 import translations from "../translations/translations";
+import { Avatar } from "./avatar";
 
 // Explicitly defined the `productsDropdown` property in the `TranslationType` to ensure compatibility
 type TranslationType = {
@@ -469,9 +470,7 @@ const Headder = (props: Props) => {
               aria-haspopup="true"
               aria-expanded={mobileProfileDropdownOpen}
             >
-              <Avatar className="w-10 h-10">
-                <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
-              </Avatar>
+              <Avatar userInitials={userInitials || "RB"} />
             </button>
             {mobileProfileDropdownOpen && (
               <div className="absolute left-0 mt-2 w-32 bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
@@ -483,10 +482,10 @@ const Headder = (props: Props) => {
                     if (currentUserStr) {
                       const currentUser = JSON.parse(currentUserStr);
                       const users = JSON.parse(
-                        localStorage.getItem("users") || "[]"
+                        localStorage.getItem("users") || "[]",
                       );
                       const idx = users.findIndex(
-                        (u: any) => u.email === currentUser.email
+                        (u: any) => u.email === currentUser.email,
                       );
                       if (idx !== -1) {
                         users[idx].lastLogoutAt = new Date().toISOString();
@@ -554,9 +553,7 @@ const Headder = (props: Props) => {
             aria-haspopup="true"
             aria-expanded={desktopProfileDropdownOpen}
           >
-            <Avatar className="w-10 h-10">
-              <AvatarFallback>{userInitials || "RB"}</AvatarFallback>
-            </Avatar>
+            <Avatar userInitials={userInitials || "RB"} />
           </button>
           {desktopProfileDropdownOpen && (
             <div className=" absolute -right-10 -left-10 w-fit  mt-2   bg-gradient-to-br from-white via-blue-100 to-pink-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-xl shadow-2xl z-50 border border-blue-200 dark:border-pink-900">
@@ -568,10 +565,10 @@ const Headder = (props: Props) => {
                   if (currentUserStr) {
                     const currentUser = JSON.parse(currentUserStr);
                     const users = JSON.parse(
-                      localStorage.getItem("users") || "[]"
+                      localStorage.getItem("users") || "[]",
                     );
                     const idx = users.findIndex(
-                      (u: any) => u.email === currentUser.email
+                      (u: any) => u.email === currentUser.email,
                     );
                     if (idx !== -1) {
                       users[idx].lastLogoutAt = new Date().toISOString();
